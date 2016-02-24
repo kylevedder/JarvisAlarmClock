@@ -1,0 +1,13 @@
+package piclock;
+
+import java.util.Arrays;
+
+public class Main {
+	public static void main(String[] args) 
+	{
+		AlarmManager cronScheduler = new AlarmManager("java -jar \"/home/kyle/code/Java/EclipseWorkspaces/eclipse-pi-alarm-clock/PiClockJob/target/PiClockJob-0.0.1-SNAPSHOT-jar-with-dependencies.jar\"");
+		cronScheduler.schedule(new Alarm("kyle", "amherst center", 19, 1, Arrays.asList(new String[] { "saturday", "monday" })));
+		cronScheduler.getAllScheduled();
+	}
+
+}

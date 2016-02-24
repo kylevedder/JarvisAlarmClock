@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<link rel="stylesheet" type="text/css"
+	href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="//cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css">
+
+
+<body>
+	<div class="container">
+		<h1>Nectr</h1>
+		
+		<form action="/user" method="get" role="form" class="form-inline">
+			<input type="text" class="form-control" name="uid" placeholder="Student ID" />
+			<button type="submit" class="btn btn-primary">GO!</button>
+		</form>
+		
+	</div>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/js/flat-ui.min.js"></script>
+
+	<script type="text/javascript">
+		$("select").select2({
+			dropdownCssClass : 'dropdown-inverse'
+		});
+	</script>
+</body>
+
+</html>

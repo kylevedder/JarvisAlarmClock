@@ -1,0 +1,48 @@
+package piclock;
+
+public class Alarm {
+	private String name;
+	private int hour;
+	private int minute;
+	private boolean weekday;
+
+	public Alarm(String name, int hour, int minute, boolean weekday) {
+		this.name = name;
+		setHour(hour);
+		setMinute(minute);
+		this.weekday = weekday;
+	}
+
+	public boolean isWeekday() {
+		return weekday;
+	}
+
+	public void setWeekday(boolean weekday) {
+		this.weekday = weekday;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		if(hour < 0) throw new IllegalArgumentException();
+		this.hour = hour % 24;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		if(minute < 0) throw new IllegalArgumentException();
+		this.minute = minute % 60;		
+		this.setHour(getHour() + minute / 60);
+	}	
+
+	@Override
+	public String toString() {
+		return String.format("%2d:%2d Weekdays: %b", hour, minute, weekday);
+	}
+
+}

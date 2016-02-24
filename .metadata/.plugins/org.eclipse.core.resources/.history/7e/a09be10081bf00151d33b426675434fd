@@ -1,0 +1,42 @@
+package piclock;
+
+public class Alarm {
+	private int hour;
+	private int minute;
+	private boolean weekday;
+
+	public Alarm(int hour, int minute, boolean weekday) {
+		this.hour = hour;
+		this.minute = minute;
+		this.weekday = weekday;
+	}
+
+	public boolean isWeekday() {
+		return weekday;
+	}
+
+	public void setWeekday(boolean weekday) {
+		this.weekday = weekday;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour % 24;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute % 60;
+		if (this.minute < 0) {
+			this.minute = 60 + this.minute;
+		}
+		this.setHour(getHour() + minute / 60);
+	}
+
+}

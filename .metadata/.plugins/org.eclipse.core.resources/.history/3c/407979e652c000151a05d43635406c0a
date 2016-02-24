@@ -1,0 +1,32 @@
+package piclock;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "piclock")
+public class Main {
+	
+	
+	
+//	public class App {
+//		public static void main(String[] args) {
+//			SpringApplication.run(App.class, args);
+//		}
+//	}
+	
+	public static void main(String[] args) {
+		AlarmManager cronScheduler = new AlarmManager(
+				"java -jar \"/home/kyle/code/Java/EclipseWorkspaces/eclipse-pi-alarm-clock/PiClockJob/target/PiClockJob-0.0.1-SNAPSHOT-jar-with-dependencies.jar\"");
+		cronScheduler.schedule(
+				new Alarm("kyle", "01003", 10, 21, Arrays.asList(new String[] { "saturday", "monday", "thursday" })));
+		List<Alarm> alarms = cronScheduler.getAllScheduled();
+
+	}
+
+}

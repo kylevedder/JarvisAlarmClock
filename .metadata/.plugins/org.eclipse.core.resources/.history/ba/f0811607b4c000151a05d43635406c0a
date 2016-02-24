@@ -1,0 +1,2 @@
+spring.view.prefix: /templates
+spring.view.suffix: .html

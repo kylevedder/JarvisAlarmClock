@@ -1,0 +1,9 @@
+####JARVIS Clock####
+
+To launch the server, run the "start.sh" script located inside this directory. To stop the server, run the "stop.sh" script.
+
+To install this project so that it will run at startup, run "install.sh".
+
+To uninstall this project so that it will no longer run at startup, run "uninstall.sh"
+
+This project depends upon access to the utility "mpg123" and access to crontabs.

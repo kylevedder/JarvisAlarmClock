@@ -1,0 +1,103 @@
+<html>
+<head>
+<script type="text/javascript">
+var alarm = {
+  name: "Kyle",
+  zipcode: 01003,
+  hour: 12,
+  min: 0,
+  days: [0, 1, 2, 3, 4, 5, 6]
+}
+function post(url, obj) {
+  var x = new XMLHttpRequest();
+  x.open("POST", url, true);
+  x.setRequestHeader("Content-type", "application/json");
+  x.send(obj);
+}
+function get(url, cb) {
+  x = new XMLHttpRequest();
+  x.open("GET", url, true);
+  x.setRequestHeader("Content-type", "application/json");
+  x.onreadystatechange = function () {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      cb(JSON.parse(xhr.responseText));
+    }
+  }
+  xhr.send();
+}
+function addAlarm() {
+  var alarm = {};
+  alarm.name = document.getElementsByName("name")[0].value;
+  alarm.zip = document.getElementsByName("zip")[0].value;
+  alarm.hour = parseInt(document.getElementsByName("time")[0].value.split(":")[0]);
+  alarm.min = parseInt(document.getElementsByName("time")[0].value.split(":")[1]);
+  alarm.days = [].map.call(document.getElementsByClassName("days"), function(x,i) {
+    if(x.checked) {
+      return i;
+    }
+    else {
+      return -1;
+    }
+    return i;
+  }).filter(function(x){return x!=-1});
+  console.log(alarm);
+  post("/api/alarm/add", JSON.stringify(alarm));
+  alert("Alarm has been created");
+}
+function deleteAlarm() {
+  post("/api/alarm/add");
+}
+function listAlarms() {
+  get("/api/alarm/list", function(x){console.log(x)});
+}
+</script>
+</head>
+<body>
+<div style="float:left;">
+  <label for="name">Your Name</label>
+  <input type="text" name="name" value="Kyle" /><br />
+  <label for="name">Zip Code</label>
+  <input type="text" name="zip" value="01003" /><br />
+  <label for="name">Time (24-hour)</label>
+  <input type="text" name="time" value="14:30" /><br />
+  <label for="sun">Sunday</label>
+  <input class="days" type="checkbox" name="sun" />
+  <label for="sun">Monday</label>
+  <input class="days" type="checkbox" name="mon" />
+  <label for="sun">Tuesday</label>
+  <input class="days" type="checkbox" name="tue" />
+  <label for="sun">Wednesday</label>
+  <input class="days" type="checkbox" name="wed" />
+  <label for="sun">Thursday</label>
+  <input class="days" type="checkbox" name="thu" />
+  <label for="sun">Friday</label>
+  <input class="days" type="checkbox" name="fri" />
+  <label for="sun">Saturday</label>
+  <input class="days" type="checkbox" name="sat" /><br />
+  <button onclick="addAlarm()">Add Alarm</button>
+  </div>
+  <div style="float:right;">
+  <label for="name">Your Name</label>
+  <input type="text" name="name" value="Kyle" /><br />
+  <label for="name">Zip Code</label>
+  <input type="text" name="zip" value="01003" /><br />
+  <label for="name">Time (24-hour)</label>
+  <input type="text" name="time" value="14:30" /><br />
+  <label for="sun">Sunday</label>
+  <input class="days" type="checkbox" name="sun" />
+  <label for="sun">Monday</label>
+  <input class="days" type="checkbox" name="mon" />
+  <label for="sun">Tuesday</label>
+  <input class="days" type="checkbox" name="tue" />
+  <label for="sun">Wednesday</label>
+  <input class="days" type="checkbox" name="wed" />
+  <label for="sun">Thursday</label>
+  <input class="days" type="checkbox" name="thu" />
+  <label for="sun">Friday</label>
+  <input class="days" type="checkbox" name="fri" />
+  <label for="sun">Saturday</label>
+  <input class="days" type="checkbox" name="sat" /><br />
+  <button onclick="addAlarm()">Add Alarm</button>
+  </div>
+</body>
+</html>

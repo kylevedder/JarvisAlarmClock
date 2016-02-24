@@ -1,0 +1,39 @@
+package piclock;
+
+
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.ivona.services.tts.IvonaSpeechCloudClient;
+import com.ivona.services.tts.model.CreateSpeechRequest;
+import com.ivona.services.tts.model.Input;
+import com.ivona.services.tts.model.Voice;
+
+public class Main {
+//	public static void main(String[] args) {
+//		CronScheduler cronScheduler = new CronScheduler("foo.sh");
+//		cronScheduler.schedule(new Alarm(2, 10, false));
+//	}
+	static IvonaSpeechCloudClient speechCloud;
+
+    private static void init() {
+        speechCloud = new IvonaSpeechCloudClient(
+                new ClasspathPropertiesFileCredentialsProvider("resources/IvonaCredentials.properties"));
+        speechCloud.setEndpoint("https://tts.eu-west-1.ivonacloud.com");
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        init();
+
+        CreateSpeechRequest createSpeechRequest = new CreateSpeechRequest();
+        Input input = new Input();
+        Voice voice = new Voice();
+
+        voice.setName("Salli");
+        input.setData("This is a sample text to be synthesized.");
+
+        createSpeechRequest.setInput(input);
+        createSpeechRequest.setVoice(voice);
+
+        System.out.println("Requested URL: " + speechCloud.getCreateSpeechUrl(createSpeechRequest));
+    }
+}

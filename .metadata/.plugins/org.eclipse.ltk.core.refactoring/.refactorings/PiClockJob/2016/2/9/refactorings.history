@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;weatherInfoNode&apos; in &apos;piclock.WeatherRequester.requestWeather(...)&apos; to &apos;weatherInfoArray&apos;&#x0A;- Original project: &apos;PiClockJob&apos;&#x0A;- Original element: &apos;piclock.WeatherRequester.requestWeather(String).weatherInfoNode&apos;&#x0A;- Renamed element: &apos;weatherInfoNode&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;weatherInfoNode&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;piclock{WeatherRequester.java[WeatherRequester~requestWeather~QString;@weatherInfoNode!1624!1675!1633!1647!QJsonNode;!0!false" name="weatherInfoArray" references="true" stamp="1456344456607" version="1.0"/>
+</session>

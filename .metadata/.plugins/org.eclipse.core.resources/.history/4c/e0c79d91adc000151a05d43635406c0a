@@ -1,0 +1,6 @@
+package piclock.controller;
+
+@Controller
+public class PageServerController {
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ivona-speechcloud-sdk-java-master/src/main/java/resource&apos; to &apos;resources&apos;" description="Rename resource &apos;resource&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/resource" name="resources" stamp="1453304722179" updateReferences="true"/>
+</session>

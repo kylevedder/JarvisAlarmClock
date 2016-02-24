@@ -1,0 +1,5 @@
+package piclock.config;
+
+public class MvcConfig {
+
+}

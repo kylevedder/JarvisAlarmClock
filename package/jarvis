@@ -1,0 +1,18 @@
+#!/bin/bash
+# Jarvis Alarm
+#
+# description: Kicks off the Jarvis Alarm on startup
+
+case $1 in
+    start)
+        /bin/bash /home/pi/package/jarvisAlarmStart.sh
+    ;;
+    stop)
+        /bin/bash /home/pi/package/jarvisAlarmStop.sh
+    ;;
+    restart)
+        /bin/bash /home/pi/package/jarvisAlarmStop.sh
+        /bin/bash /home/pi/package/jarvisAlarmStart.sh
+    ;;
+esac
+exit 0

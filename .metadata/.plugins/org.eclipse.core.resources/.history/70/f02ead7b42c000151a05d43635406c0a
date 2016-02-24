@@ -1,0 +1,12 @@
+package piclock;
+
+import java.util.Arrays;
+
+public class Main {
+	public static void main(String[] args) 
+	{
+		AlarmManager cronScheduler = new AlarmManager("foo.sh");
+		cronScheduler.schedule(new Alarm("kyle", "amherst center", 1, 1, Arrays.asList(new String[] { "saturday", "monday" })));		
+	}
+
+}

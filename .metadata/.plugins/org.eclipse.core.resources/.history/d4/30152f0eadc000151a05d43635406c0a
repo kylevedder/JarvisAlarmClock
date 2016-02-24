@@ -1,0 +1,53 @@
+package piclock;
+
+import static org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.RESOURCE_LOCATIONS;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+
+@SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "piclock")
+public class Main extends WebMvcAutoConfiguration{
+
+	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+			"classpath:/META-INF/resources/", "classpath:/resources/",
+			"classpath:/static/", "classpath:/public/" };
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		if (!registry.hasMappingForPattern("/webjars/**")) {
+			registry.addResourceHandler("/webjars/**").addResourceLocations(
+					"classpath:/META-INF/resources/webjars/");
+		}
+		if (!registry.hasMappingForPattern("/**")) {
+			registry.addResourceHandler("/**").addResourceLocations(
+					CLASSPATH_RESOURCE_LOCATIONS);
+		}
+	}
+
+	
+	public static String scriptPath = "";
+
+	public static void main(String[] args) {
+
+		args = new String[] {
+				"java -jar \"/home/kyle/code/Java/EclipseWorkspaces/eclipse-pi-alarm-clock/PiClockJob/target/PiClockJob-0.0.1-SNAPSHOT-jar-with-dependencies.jar\"" };
+		if (args.length != 1) {
+			printAndExit();
+		}
+		scriptPath = args[0];
+		SpringApplication.run(Main.class, args);
+
+	}
+
+	private static void printAndExit() {
+		System.out.println("Args: <script path>");
+		System.exit(-1);
+	}
+
+}

@@ -1,0 +1,8 @@
+package piclock;
+
+public class Main {
+	public static void main(String[] args) {
+		CronScheduler cronScheduler = CronScheduler.getInstance();
+		cronScheduler.schedule(new Alarm(7, 0, true));
+	}
+}

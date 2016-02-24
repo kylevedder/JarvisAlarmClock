@@ -1,0 +1,17 @@
+package piclock;
+
+import java.util.Arrays;
+
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.ivona.services.tts.IvonaSpeechCloudClient;
+import com.ivona.services.tts.model.CreateSpeechRequest;
+import com.ivona.services.tts.model.Input;
+import com.ivona.services.tts.model.Voice;
+
+public class Main {
+	public static void main(String[] args) {
+		CronScheduler cronScheduler = new CronScheduler("foo.sh");
+		cronScheduler.schedule(new Alarm("kyle", 1, 1, Arrays.asList(new String[] { "saturday", "monday" })));
+	}
+
+}

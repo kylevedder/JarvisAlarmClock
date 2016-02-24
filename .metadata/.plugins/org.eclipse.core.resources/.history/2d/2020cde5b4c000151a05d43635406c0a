@@ -1,0 +1,3 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body><h1>Hello World!</h1></body>
+</html>

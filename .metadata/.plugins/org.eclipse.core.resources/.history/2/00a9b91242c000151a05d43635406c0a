@@ -1,0 +1,19 @@
+package piclock;
+
+import java.util.Arrays;
+
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.ivona.services.tts.IvonaSpeechCloudClient;
+import com.ivona.services.tts.model.CreateSpeechRequest;
+import com.ivona.services.tts.model.Input;
+import com.ivona.services.tts.model.Voice;
+
+public class Main {
+	public static void main(String[] args) 
+	{
+		AlarmManager cronScheduler = new AlarmManager("foo.sh");
+		cronScheduler.schedule(new Alarm("kyle", "amherst center", 1, 1, Arrays.asList(new String[] { "saturday", "monday" })));
+		textToSpeech.syntesize("Hello world, this is a test that will take more than a second", "/tmp/test.mp3");
+	}
+
+}
