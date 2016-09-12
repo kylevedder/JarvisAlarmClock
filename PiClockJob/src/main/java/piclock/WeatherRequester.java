@@ -41,12 +41,8 @@ public class WeatherRequester {
 		JsonNode rootNode;
 		try {
 			rootNode = objectMapper.readTree(data);
-			System.out.println(rootNode.toString());
 
 			JsonNode mainInfoNode = rootNode.path("query").path("results").path("channel");
-			;
-			System.out.println(mainInfoNode);
-			JsonNode weatherInfoArray = rootNode.path("weather");
 
 			JsonNode cityNameNode = mainInfoNode.path("location").path("city");
 
