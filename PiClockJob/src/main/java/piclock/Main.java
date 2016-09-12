@@ -8,18 +8,17 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		 args = new String[] { "kyle", "01003" };
+		args = new String[] { "kyle" };
 
-		if (args.length != 2) {
+		if (args.length < 1) {
 			argsAndQuit();
 		}
 
 		String name = args[0];
-		String zipCode = args[1];
 
 		TextToSpeech textToSpeech = TextToSpeech.getInstance();
 		WeatherRequester weatherRequester = WeatherRequester.getInstance();
-		Weather weather = weatherRequester.requestWeather(zipCode);
+		YahooWeather weather = weatherRequester.requestWeather();
 		System.out.println(weather);
 
 		String textToSpeak = String.format("%s %s. %s. %s", getGreeting(), name, getTime(), weather.toString());
@@ -66,7 +65,7 @@ public class Main {
 	}
 
 	public static void argsAndQuit() {
-		System.out.println("Args: <user's name> <town name>");
+		System.out.println("Args: <user's name>");
 		System.exit(-1);
 	}
 
