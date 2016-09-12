@@ -9,5 +9,7 @@ Works on a RaspberryPi.
 Requires Maven 3 to be installed. Run `createPackage.sh` to build all required JARs. 
 Copy onto target device (such as a RaspberryPi), and run `install.sh`.
 
+See the README in the `package` directory for more information.
+
 ##Running Manually
 To manually fire the job, run `JarvisJob.jar`.
